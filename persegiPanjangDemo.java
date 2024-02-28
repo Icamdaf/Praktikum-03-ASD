@@ -1,27 +1,27 @@
-/**
- * persegiPanjangDemo
- */
+import java.util.Scanner;
+
 public class persegiPanjangDemo {
-    public int panjang;
-    public int lebar;
     public static void main(String[] args) {
-        persegiPanjang[] arrayOfpersegiPanjang = new persegiPanjang[3];
+        Scanner sc = new Scanner(System.in);
 
-        arrayOfpersegiPanjang[0] = new persegiPanjang();
-        arrayOfpersegiPanjang[0].panjang = 110;
-        arrayOfpersegiPanjang[0].lebar = 30;
+        System.out.print("Masukkan jumlah persegi panjang: ");
+        int jumlahPersegi = sc.nextInt();
+        
+        persegiPanjang[] arrayOfpersegiPanjang = new persegiPanjang[jumlahPersegi];
 
-        arrayOfpersegiPanjang[1] = new persegiPanjang();
-        arrayOfpersegiPanjang[1].panjang = 80;
-        arrayOfpersegiPanjang[1].lebar = 40;
+        for (int i = 0; i < jumlahPersegi; i++) {
+            System.out.println("Persegi panjang ke-" + (i + 1));
+            System.out.print("Masukkan panjang: ");
+            int panjang = sc.nextInt();
+            System.out.print("Masukkan lebar: ");
+            int lebar = sc.nextInt();
+            arrayOfpersegiPanjang[i] = new persegiPanjang(panjang, lebar);
+        }
 
-        arrayOfpersegiPanjang[2] = new persegiPanjang();
-        arrayOfpersegiPanjang[2].panjang = 100;
-        arrayOfpersegiPanjang[2].lebar = 20;
-
-        System.out.println("persegi panjang ke 1, panjang =" +arrayOfpersegiPanjang[0].panjang + ",lebar =" +arrayOfpersegiPanjang[0].lebar);
-        System.out.println("persegi panjang ke 2, panjang =" +arrayOfpersegiPanjang[1].panjang + ",lebar =" +arrayOfpersegiPanjang[1].lebar); 
-        System.out.println("persegi panjang ke 3, panjang =" +arrayOfpersegiPanjang[2].panjang + ",lebar =" +arrayOfpersegiPanjang[2].lebar);
-
+        for (int i = 0; i < jumlahPersegi; i++) {
+            arrayOfpersegiPanjang[i].cetakInfo();
+            System.out.println("Luas: " + arrayOfpersegiPanjang[i].hitungLuas());
+            System.out.println("Keliling: " + arrayOfpersegiPanjang[i].hitungKeliling());
+        }
     }
 }
